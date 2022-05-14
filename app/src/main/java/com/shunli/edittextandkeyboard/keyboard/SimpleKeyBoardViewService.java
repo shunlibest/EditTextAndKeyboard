@@ -39,6 +39,7 @@ public class SimpleKeyBoardViewService extends InputMethodService implements Vie
         keyboardView.findViewById(R.id.btn2).setOnClickListener(this);
         keyboardView.findViewById(R.id.btn3).setOnClickListener(this);
         keyboardView.findViewById(R.id.btn4).setOnClickListener(this);
+        keyboardView.findViewById(R.id.newLine).setOnClickListener(this);
         keyboardView.findViewById(R.id.btn_hide).setOnClickListener(this);
         Log.d(TAG, "onCreateInputView()");
         return keyboardView;
@@ -48,7 +49,7 @@ public class SimpleKeyBoardViewService extends InputMethodService implements Vie
     public void onClick(View v) {
         if (v.getId() == R.id.btn_hide) {
             // 隐藏软键盘
-            hideWindow();
+            onFinishInput();
         } else {
             Button button = (Button) v;
             // 获得InputConnection对象, InputConnection由客户端控件创建，并传递给输入法应用，由输入法应用调用，进行信息反馈
@@ -57,6 +58,8 @@ public class SimpleKeyBoardViewService extends InputMethodService implements Vie
                 // 设置预输入文本
                 // setComposingText方法的第2个参数值为1，表示在当前位置预输入文本
                 inputConnection.setComposingText(button.getText(), 1);
+            } else if (button.getId() == R.id.newLine) {
+                inputConnection.commitText("\n", 1);
             } else {
                 // 向当前获得焦点的EditText控件输出文本
                 // commitText方法第2个参数值为1，表示在当前位置插入文本

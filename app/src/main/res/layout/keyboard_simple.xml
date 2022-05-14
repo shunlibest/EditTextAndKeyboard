@@ -27,6 +27,12 @@
         android:layout_weight="1"
         android:text="c" />
 
+
+    <View
+        android:layout_width="1dp"
+        android:background="@color/md_red_a700_color_code"
+        android:layout_height="200dp"/>
+
     <Button
         android:id="@+id/btn4"
         android:layout_width="0dp"
@@ -36,11 +42,21 @@
         android:text="d" />
 
     <Button
+        android:id="@+id/newLine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_weight="1"
+        android:text="Br" />
+
+
+    <Button
         android:id="@+id/btn_hide"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="6dp"
         android:layout_weight="1"
         android:text="Hide" />
+
 
 </LinearLayout>
